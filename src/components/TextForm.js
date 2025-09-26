@@ -14,13 +14,20 @@ export default function TextForm(props) {
     setText(newText)
     
   }
+  const HandleUpClicklower = () =>{
+    let lowerText = text.toLowerCase()
+    setText(lowerText)
+  }
+
   const toggle = () => {
     if (document.body.style.backgroundColor === "black") {
       document.body.style.backgroundColor = "white";
+      document.getElementById('myBox').style.backgroundColor = 'white';
       document.body.style.color = "black";
     } else {
       document.body.style.backgroundColor = "black";
-      
+      document.getElementById('myBox').style.backgroundColor = 'black';
+      document.getElementById('myBox').style.color = 'white';
       document.body.style.color = "white";
     }
   }
@@ -36,13 +43,14 @@ export default function TextForm(props) {
             <input className="form-check-input" type="checkbox" id="flexSwitchCheckDefault" onClick={toggle}/>
             <label className="form-check-label" for="flexSwitchCheckDefault">Dark Mode</label>
         </div>
-        <div className='container'>
+        <div className='container' id='container'>
             <h1>{props.heading}</h1>
             <div className="mb-3">
             
             <textarea className="form-control" id="myBox" value={text} onChange={HandleOnChange} rows="8"></textarea>
             </div>
             <button type="button" className="btn btn-info" onClick={HandleUpClick}>Convert To Uppercase</button>
+            <button type="button" className="btn btn-info" onClick={HandleUpClicklower}>Convert To LowerCase</button>
         </div>
         <div className="container my-3">
             <h4>Your Text Summary</h4>
